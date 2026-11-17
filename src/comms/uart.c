@@ -47,9 +47,9 @@ char uart_getc(void) {
     char enter = UART0_DR;
     if (enter == 0x0A || enter == 0x0D) {
         uart_puts("\r\n");
-        enter;
     } else {
         uart_putc(enter);
-        enter;
     }
+
+    return enter;
 }

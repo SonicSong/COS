@@ -11,7 +11,9 @@ add_executable(kernel.elf src/boot.S src/main.c src/comms/uart.c src/comms/uart.
         src/shell/proto_shell.c
         src/shell/proto_shell.h
         src/memory/memory.c
-        src/memory/memory.h)
+        src/memory/memory.h
+        src/comms/shutdown.c
+        src/comms/shutdown.h)
 
 target_compile_options(kernel.elf PRIVATE
         ${CPU_FLAGS}

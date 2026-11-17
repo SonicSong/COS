@@ -8,8 +8,7 @@ void main(void) {
     uart_puts("Running off a custom OS on Pi Zero 2 W!\n");
     uart_puts("> ");
     while (1) {
-        char test_ch = uart_getc();
-        uart_putc(test_ch);
+        uart_getc();
     }
     for (;;) __asm__ volatile("wfe");
 }
