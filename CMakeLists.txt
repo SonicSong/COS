@@ -7,7 +7,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CPU_FLAGS -mcpu=cortex-a53 -mgeneral-regs-only)
 
 add_executable(kernel.elf src/boot.S src/main.c src/comms/uart.c src/comms/uart.h src/gpio.h
-        src/comms/mailbox.c)
+        src/comms/mailbox.c
+        src/shell/proto_shell.c
+        src/shell/proto_shell.h
+        src/memory/memory.c
+        src/memory/memory.h)
 
 target_compile_options(kernel.elf PRIVATE
         ${CPU_FLAGS}

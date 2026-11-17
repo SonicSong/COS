@@ -23,7 +23,7 @@ void uart_init(void) {
     GPPUDCLK0 = 0;
 
     UART0_ICR  = 0x7FF;
-    UART0_IBRD = 26;                 // 48 MHz UART clock -> 115200 baud
+    UART0_IBRD = 0x1A;                 // 48 MHz UART clock -> 115200 baud
     UART0_FBRD = 3;
     UART0_LCRH = (3u << 5);          // 8N1, FIFO off
     UART0_IMSC = 0;
@@ -39,5 +39,17 @@ void uart_puts(const char *s) {
     while (*s) {
         if (*s == '\n') uart_putc('\r');
         uart_putc(*s++);
+    }
+}
+
+char uart_getc(void) {
+    while (UART0_FR & (1u << 4)) {}
+    char enter = UART0_DR;
+    if (enter == 0x0A || enter == 0x0D) {
+        uart_puts("\r\n");
+        enter;
+    } else {
+        uart_putc(enter);
+        enter;
     }
 }
