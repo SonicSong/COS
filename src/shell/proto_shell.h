@@ -5,4 +5,8 @@
 #ifndef COS_PROTO_SHELL_H
 #define COS_PROTO_SHELL_H
 
+#include "../comms/uart.h"
+
+void proto_shell_init(void);
+
 #endif //COS_PROTO_SHELL_H
