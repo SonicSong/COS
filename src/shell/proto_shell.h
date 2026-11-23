@@ -7,8 +7,12 @@
 
 #include "../comms/uart.h"
 
-void proto_shell_init(void);
-void proto_shell_exec(char *line);
+#include <stddef.h>
+#include <stdint.h>
+
+
+int proto_shell_init(void);
+int proto_shell_exec(char *line);
 
 //Libc replacement
 static int str_eq(const char *a, const char *b);
@@ -17,5 +21,6 @@ static char *str_find(char *s, char c);
 //Programs
 static void proto_shell_help(void);
 static void proto_shell_echo(const char *word);
+static void proto_shell_stop(void);
 
 #endif //COS_PROTO_SHELL_H
