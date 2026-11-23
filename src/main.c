@@ -7,6 +7,8 @@ void main(void) {
     uart_init();
     uart_puts("Hello World.\n");
     uart_puts("Running off a custom OS on Pi Zero 2 W!\n");
-    proto_shell_init();
+    while (1) {
+        proto_shell_init();
+    }
     for (;;) __asm__ volatile("wfe");
 }
