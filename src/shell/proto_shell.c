@@ -4,6 +4,8 @@
 
 #include "proto_shell.h"
 
+// Really basic shell only for test usage on UART
+
 #define PROTO_SHELL_ARG_MAX 2048
 
 static int str_eq(const char *a, const char *b) {
