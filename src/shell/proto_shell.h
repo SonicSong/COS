@@ -14,8 +14,12 @@
 int proto_shell_init(void);
 int proto_shell_exec(char *line);
 
-//Libc replacement
+///Libc replacement.
+/// Check whether the two strings are equal
 static int str_eq(const char *a, const char *b);
+
+///Libc replacement.
+/// Find the first occurrence of a character in a string
 static char *str_find(char *s, char c);
 
 //Programs
